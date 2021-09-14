@@ -1,0 +1,14 @@
+C:\Users\birol\source\repos\UbeydeWorkspace\UbeydeWorkspace\obj\Debug\netcoreapp3.1\UbeydeWorkspace.csproj.AssemblyReference.cache
+C:\Users\birol\source\repos\UbeydeWorkspace\UbeydeWorkspace\obj\Debug\netcoreapp3.1\UbeydeWorkspace.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\birol\source\repos\UbeydeWorkspace\UbeydeWorkspace\obj\Debug\netcoreapp3.1\UbeydeWorkspace.AssemblyInfoInputs.cache
+C:\Users\birol\source\repos\UbeydeWorkspace\UbeydeWorkspace\obj\Debug\netcoreapp3.1\UbeydeWorkspace.AssemblyInfo.cs
+C:\Users\birol\source\repos\UbeydeWorkspace\UbeydeWorkspace\obj\Debug\netcoreapp3.1\UbeydeWorkspace.csproj.CoreCompileInputs.cache
+C:\Users\birol\source\repos\UbeydeWorkspace\UbeydeWorkspace\bin\Debug\netcoreapp3.1\UbeydeWorkspace.exe
+C:\Users\birol\source\repos\UbeydeWorkspace\UbeydeWorkspace\bin\Debug\netcoreapp3.1\UbeydeWorkspace.deps.json
+C:\Users\birol\source\repos\UbeydeWorkspace\UbeydeWorkspace\bin\Debug\netcoreapp3.1\UbeydeWorkspace.runtimeconfig.json
+C:\Users\birol\source\repos\UbeydeWorkspace\UbeydeWorkspace\bin\Debug\netcoreapp3.1\UbeydeWorkspace.runtimeconfig.dev.json
+C:\Users\birol\source\repos\UbeydeWorkspace\UbeydeWorkspace\bin\Debug\netcoreapp3.1\UbeydeWorkspace.dll
+C:\Users\birol\source\repos\UbeydeWorkspace\UbeydeWorkspace\bin\Debug\netcoreapp3.1\UbeydeWorkspace.pdb
+C:\Users\birol\source\repos\UbeydeWorkspace\UbeydeWorkspace\obj\Debug\netcoreapp3.1\UbeydeWorkspace.dll
+C:\Users\birol\source\repos\UbeydeWorkspace\UbeydeWorkspace\obj\Debug\netcoreapp3.1\UbeydeWorkspace.pdb
+C:\Users\birol\source\repos\UbeydeWorkspace\UbeydeWorkspace\obj\Debug\netcoreapp3.1\UbeydeWorkspace.genruntimeconfig.cache
