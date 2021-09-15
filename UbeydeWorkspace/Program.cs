@@ -72,7 +72,7 @@ namespace UbeydeWorkspaceCSharp
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("\t********************************************************************");
                 Console.WriteLine("\t*                                                                  *");
-                Console.WriteLine("\t*  BİR HATA OLUŞTU. LÜTFEN TALİMATLARI DOĞRU BİR ŞEKİLDE YAPINIZ.  *", Console.ForegroundColor);
+                Console.WriteLine("\t*  BİR HATA OLUŞTU. LÜTFEN TALİMATLARI DOĞRU BİR ŞEKİLDE YAPINIZ.  *");
                 Console.WriteLine("\t*                                                                  *");
                 Console.WriteLine("\t********************************************************************");
                 Main();
@@ -455,7 +455,9 @@ namespace UbeydeWorkspaceCSharp
 
         public static void TextRepeaterMain()
         {
+            Console.WriteLine("Lütfen girmek istediğiniz kelimeyi, cümleyi vb. girin ve enter'a basın.");
             string inputtedText = Console.ReadLine();
+            Console.WriteLine("Girdiğiniz kelime, cümle vb. kaç defa tekrarlansın?");
             int counter = Convert.ToInt32(Console.ReadLine());
 
             for (int i = 0; i < counter; i++)
