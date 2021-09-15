@@ -6,6 +6,8 @@ namespace UbeydeWorkspaceCSharp
     {
         public static void Main()
         {
+
+            Console.ForegroundColor = ConsoleColor.Gray;
             string name = "Ubeyde";
             Console.WriteLine("{0}'nin Çalışma Alanına Hoşgeldiniz!", name);
             Console.WriteLine("Çalıştırmak istediğiniz program hangisi ise lütfen onunla ilgili sayıyı yazıp enter'a basın.");
@@ -67,9 +69,12 @@ namespace UbeydeWorkspaceCSharp
             }
             catch
             {
-                Console.WriteLine("\t**************************************************************************************************");
-                Console.WriteLine("\n\tHATA OLUŞTU. Girdiğiniz sayı en az 0, en çok 255 olmalıdır. Ayrıca yalnızca sayı girebilirsiniz.\n");
-                Console.WriteLine("\t**************************************************************************************************");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("\t********************************************************************");
+                Console.WriteLine("\t*                                                                  *");
+                Console.WriteLine("\t*  BİR HATA OLUŞTU. LÜTFEN TALİMATLARI DOĞRU BİR ŞEKİLDE YAPINIZ.  *", Console.ForegroundColor);
+                Console.WriteLine("\t*                                                                  *");
+                Console.WriteLine("\t********************************************************************");
                 Main();
             }
         }
