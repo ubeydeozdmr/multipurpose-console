@@ -9,29 +9,41 @@ namespace UbeydeWorkspaceCSharp
             string name = "Ubeyde";
             Console.WriteLine("{0}'nin Çalışma Alanına Hoşgeldiniz!", name);
             Console.WriteLine("Çalıştırmak istediğiniz program hangisi ise lütfen onunla ilgili sayıyı yazıp enter'a basın.");
-            Console.WriteLine("\t0\tİsminizi yazdırın");
-            Console.WriteLine("\t1\tİki sayı ile dört işlem yapın.");
-            Console.WriteLine("\t2\tAlmak istediğiniz ürünün indirimli fiyatını bulun.");
-            Console.WriteLine("\t3\tÜç sınavın not ortalamasını bulun.");
-            Console.WriteLine("\t4\tDikdörtgenin çevresini ve alanını bulun.");
+            Console.WriteLine("\t0\tUygulamadan çık.");
+            Console.WriteLine("\t1\tİsminizi yazdırın");
+            Console.WriteLine("\t2\tİki sayı ile dört işlem yapın.");
+            Console.WriteLine("\t3\tAlmak istediğiniz ürünün indirimli fiyatını bulun.");
+            Console.WriteLine("\t4\tÜç sınavın not ortalamasını bulun.");
+            Console.WriteLine("\t5\tDikdörtgenin çevresini ve alanını bulun.");
+            Console.WriteLine("\t6\tDaire veya daire diliminin alanını bulun.");
+            Console.WriteLine("\t7\tÜç direncin eşdeğer direncini bulun.");
             byte selector = Convert.ToByte(Console.ReadLine());
 
             switch(selector)
             {
                 case 0:
-                    PrintYourName.PrintYourNameMain();
+                    Environment.Exit(0);
                     break;
                 case 1:
-                    SimpleCalculator.SimpleCalculatorMain();
+                    PrintYourName.PrintYourNameMain();
                     break;
                 case 2:
-                    DiscountCalculator.DiscountCalculatorMain();
+                    SimpleCalculator.SimpleCalculatorMain();
                     break;
                 case 3:
-                    AverageMarkCalculator.AverageMarkCalculatorMain();
+                    DiscountCalculator.DiscountCalculatorMain();
                     break;
                 case 4:
+                    AverageMarkCalculator.AverageMarkCalculatorMain();
+                    break;
+                case 5:
                     AreaOfRectangle.AreaOfRectangleMain();
+                    break;
+                case 6:
+                    AreaOfCircle.AreaOfCircleMain();
+                    break;
+                case 7:
+                    EquivalentResistanceCalculator.EquivalentResistanceCalculatorMain();
                     break;
                 default:
                     Main();
@@ -99,6 +111,9 @@ namespace UbeydeWorkspaceCSharp
             } else if (selectedOperation == "/")
             {
                 Console.WriteLine(isleminizinSonucu + (firstNumber / secondNumber));
+            } else
+            {
+                SimpleCalculatorMain();
             }
 
             Console.WriteLine(tekrarSor);
@@ -173,6 +188,10 @@ namespace UbeydeWorkspaceCSharp
             mark2 = Convert.ToByte(Console.ReadLine());
             Console.WriteLine("Lütfen üçüncü sınavınızın notunu giriniz.");
             mark3 = Convert.ToByte(Console.ReadLine());
+
+            if (mark1 < 0 || mark2 < 0 || mark3 < 0 || mark1 > 100 || mark2 > 100 || mark3 > 100)
+            { Console.WriteLine("Girdiğiniz not değerleri sıfırdan küçük veya yüzden büyük olamaz."); AverageMarkCalculatorMain(); }
+
             Console.WriteLine("Not ortalamanız: " + ( mark1 + mark2 + mark3 ) / 3 );
 
             Console.WriteLine(tekrarSor);
@@ -191,7 +210,7 @@ namespace UbeydeWorkspaceCSharp
     class AreaOfRectangle
     {
 
-        static string tekrarSor = "Tekrar dikdörtgen çevresini veya alanını ölçmek ister misiniz?";
+        static string tekrarSor = "Tekrar dikdörtgen çevresini veya alanını ölçmek ister misiniz? (e/h)";
 
         public static void AreaOfRectangleMain()
         {
@@ -199,8 +218,14 @@ namespace UbeydeWorkspaceCSharp
             int edge1, edge2;
             Console.WriteLine("Dikdörtgenin bir kenarını giriniz.");
             edge1 = Convert.ToInt32(Console.ReadLine());
+
+            if (edge1 <= 0) { Console.WriteLine("Girdiğiniz kenar uzunluğu sıfırdan büyük olmak zorundadır."); AreaOfRectangleMain(); }
+
             Console.WriteLine("Dikdörtgenin diğer kenarını giriniz.");
             edge2 = Convert.ToInt32(Console.ReadLine());
+
+            if (edge2 <= 0) { Console.WriteLine("Girdiğiniz kenar uzunluğu sıfırdan büyük olmak zorundadır."); AreaOfRectangleMain(); }
+
             Console.WriteLine("Dikdörtgenin çevresi " + ( 2 * ( edge1 + edge2 ) ) + ", alanı ise " + ( edge1 * edge2 ) + "'dir." );
 
             Console.WriteLine(tekrarSor);
@@ -208,6 +233,112 @@ namespace UbeydeWorkspaceCSharp
             if (selectedOption == "e")
             {
                 AreaOfRectangleMain();
+            }
+            else
+            {
+                MainClass.Main();
+            }
+        }
+    }
+
+    class AreaOfCircle
+    {
+        static string tekrarSor = "Tekrar daire alanını bulmak ister misiniz? (e/h)";
+
+        public static void AreaOfCircleMain()
+        {
+            double radius, angleOfCircleSegment;
+            Console.WriteLine("Lütfen yarıçapı giriniz.");
+            radius = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Lütfen daire diliminin açısını girin. Eğer daireniz tam daire ise 360 yazıp enter'a basın.");
+            angleOfCircleSegment = Convert.ToDouble(Console.ReadLine());
+
+            if (angleOfCircleSegment < 0 || angleOfCircleSegment > 360 || radius <= 0)
+            { Console.WriteLine("Lütfen geçerli bir açı değeri giriniz. Ayrıca yarıçap sıfırdan büyük olmak zorunda."); AreaOfCircleMain(); }
+
+            Console.WriteLine("Pi'yi 3 almak istiyorsanız 3, 3.14 almak istiyorsanız 4'e basıp enter'a basın.");
+            string selectedOperation = Console.ReadLine();
+
+            if (selectedOperation == "3")
+            {
+                AreaOfCircle3();
+            } else if (selectedOperation == "4")
+            {
+                AreaOfCircle4();
+            } else
+            {
+                AreaOfCircle.AreaOfCircleMain();
+            }
+
+            void AreaOfCircle3()
+            {
+                Console.WriteLine("Dairenin alanı: " + ( 3 * radius * radius * ( angleOfCircleSegment / 360 ) ) );
+            }
+
+            void AreaOfCircle4()
+            {
+                Console.WriteLine("Dairenin alanı: " + ( 3.14 * radius * radius * ( angleOfCircleSegment / 360 ) ) );
+            }
+
+            Console.WriteLine(tekrarSor);
+            string selectedOption = Console.ReadLine();
+            if (selectedOption == "e")
+            {
+                AreaOfCircle.AreaOfCircleMain();
+            }
+            else
+            {
+                MainClass.Main();
+            }
+        }
+    }
+
+    class EquivalentResistanceCalculator
+    {
+
+        static string tekrarSor = "Tekrar eşdeğer direnç ölçümü yapmak ister misiniz? (e/h)";
+
+        public static void EquivalentResistanceCalculatorMain()
+        {
+            int resistance1, resistance2, resistance3;  double equivalentResistance;
+            Console.WriteLine("Birinci direnç değerini ohm cinsinden giriniz.");
+            resistance1 = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("İkinci direnç değerini ohm cinsinden giriniz.");
+            resistance2 = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Üçüncü direnç değerini ohm cinsinden giriniz.");
+            resistance3 = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Seri bağlama için a, paralel bağlama için b yazıp enter'a basın.");
+            char selectedOperation = Convert.ToChar(Console.ReadLine());
+
+            if (selectedOperation == 'a')
+            {
+                Serial();
+            }
+            else if (selectedOperation == 'b')
+            {
+                Parallel();
+            } else
+            {
+                EquivalentResistanceCalculator.EquivalentResistanceCalculatorMain();
+            }
+
+            void Serial()
+            {
+                equivalentResistance = resistance1 + resistance2 + resistance3;
+                Console.WriteLine("Eşdeğer direnç " + equivalentResistance);
+            }
+
+            void Parallel()
+            {
+                equivalentResistance = ( resistance1 * resistance2 * resistance3 ) / ( resistance1 * resistance2 + resistance2 * resistance3 + resistance1 * resistance3 );
+                Console.WriteLine("Eşdeğer direnç " + equivalentResistance);
+            }
+
+            Console.WriteLine(tekrarSor);
+            string selectedOption = Console.ReadLine();
+            if (selectedOption == "e")
+            {
+                EquivalentResistanceCalculator.EquivalentResistanceCalculatorMain();
             }
             else
             {
