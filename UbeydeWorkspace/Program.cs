@@ -17,37 +17,60 @@ namespace UbeydeWorkspaceCSharp
             Console.WriteLine("\t5\tDikdörtgenin çevresini ve alanını bulun.");
             Console.WriteLine("\t6\tDaire veya daire diliminin alanını bulun.");
             Console.WriteLine("\t7\tÜç direncin eşdeğer direncini bulun.");
-            byte selector = Convert.ToByte(Console.ReadLine());
+            Console.WriteLine("\t8\tYazdığınız sayının tek mi çift mi olduğunu görün.");
+            Console.WriteLine("\t9\tBir sayıyı diğer bir sayıya bölüp kalanı bulun.");
+            Console.WriteLine("\t10\tYazdırmak istediğiniz bir kelimeyi, cümleyi vb. istediğiniz kadar alt alta yazdırın.");
 
-            switch(selector)
+            try
             {
-                case 0:
-                    Environment.Exit(0);
-                    break;
-                case 1:
-                    PrintYourName.PrintYourNameMain();
-                    break;
-                case 2:
-                    SimpleCalculator.SimpleCalculatorMain();
-                    break;
-                case 3:
-                    DiscountCalculator.DiscountCalculatorMain();
-                    break;
-                case 4:
-                    AverageMarkCalculator.AverageMarkCalculatorMain();
-                    break;
-                case 5:
-                    AreaOfRectangle.AreaOfRectangleMain();
-                    break;
-                case 6:
-                    AreaOfCircle.AreaOfCircleMain();
-                    break;
-                case 7:
-                    EquivalentResistanceCalculator.EquivalentResistanceCalculatorMain();
-                    break;
-                default:
-                    Main();
-                    break;
+                byte selector = Convert.ToByte(Console.ReadLine());
+
+                switch (selector)
+                {
+                    case 0:
+                        Environment.Exit(0);
+                        break;
+                    case 1:
+                        PrintYourName.PrintYourNameMain();
+                        break;
+                    case 2:
+                        SimpleCalculator.SimpleCalculatorMain();
+                        break;
+                    case 3:
+                        DiscountCalculator.DiscountCalculatorMain();
+                        break;
+                    case 4:
+                        AverageMarkCalculator.AverageMarkCalculatorMain();
+                        break;
+                    case 5:
+                        AreaOfRectangle.AreaOfRectangleMain();
+                        break;
+                    case 6:
+                        AreaOfCircle.AreaOfCircleMain();
+                        break;
+                    case 7:
+                        EquivalentResistanceCalculator.EquivalentResistanceCalculatorMain();
+                        break;
+                    case 8:
+                        OddOrEven.OddOrEvenMain();
+                        break;
+                    case 9:
+                        RemainderFinder.RemainderFinderMain();
+                        break;
+                    case 10:
+                        TextRepeater.TextRepeaterMain();
+                        break;
+                    default:
+                        Main();
+                        break;
+                }
+            }
+            catch
+            {
+                Console.WriteLine("\t**************************************************************************************************");
+                Console.WriteLine("\n\tHATA OLUŞTU. Girdiğiniz sayı en az 0, en çok 255 olmalıdır. Ayrıca yalnızca sayı girebilirsiniz.\n");
+                Console.WriteLine("\t**************************************************************************************************");
+                Main();
             }
         }
     }
@@ -64,14 +87,15 @@ namespace UbeydeWorkspaceCSharp
             nameInput = Console.ReadLine();
             Console.WriteLine("Lütfen soyisminizi giriniz.");
             surnameInput = Console.ReadLine();
-            Console.WriteLine("Tam isminiz {0} {1}",nameInput, surnameInput);
+            Console.WriteLine("Tam isminiz {0} {1}", nameInput, surnameInput);
 
             Console.WriteLine(tekrarSor);
             string selectedOption = Console.ReadLine();
             if (selectedOption == "e")
             {
                 PrintYourNameMain();
-            } else
+            }
+            else
             {
                 MainClass.Main();
             }
@@ -105,13 +129,16 @@ namespace UbeydeWorkspaceCSharp
             else if (selectedOperation == "-")
             {
                 Console.WriteLine(isleminizinSonucu + (firstNumber - secondNumber));
-            } else if (selectedOperation == "*")
+            }
+            else if (selectedOperation == "*")
             {
                 Console.WriteLine(isleminizinSonucu + (firstNumber * secondNumber));
-            } else if (selectedOperation == "/")
+            }
+            else if (selectedOperation == "/")
             {
                 Console.WriteLine(isleminizinSonucu + (firstNumber / secondNumber));
-            } else
+            }
+            else
             {
                 SimpleCalculatorMain();
             }
@@ -121,7 +148,8 @@ namespace UbeydeWorkspaceCSharp
             if (selectedOption == "e")
             {
                 SimpleCalculatorMain();
-            } else
+            }
+            else
             {
                 MainClass.Main();
             }
@@ -146,10 +174,11 @@ namespace UbeydeWorkspaceCSharp
                 Console.WriteLine("İndirim %100'den daha çok veya %0'dan daha az olamaz. Lütfen geçerli bir indirim oranı girin.");
                 Console.ReadLine();
                 DiscountCalculatorMain();
-            } else
+            }
+            else
             {
-                Console.WriteLine("İndirimli ürün fiyatınız: " + tagPrice * ( ( 100 - discount ) / 100 ) );
-                
+                Console.WriteLine("İndirimli ürün fiyatınız: " + tagPrice * ((100 - discount) / 100));
+
                 if (discount == 0)
                 {
                     Console.WriteLine("İndirim oranının %0 olması aslında o ürüne indirim yapılmadığı anlamına gelir.");
@@ -166,7 +195,8 @@ namespace UbeydeWorkspaceCSharp
             if (selectedOption == "e")
             {
                 DiscountCalculatorMain();
-            } else
+            }
+            else
             {
                 MainClass.Main();
             }
@@ -192,7 +222,7 @@ namespace UbeydeWorkspaceCSharp
             if (mark1 < 0 || mark2 < 0 || mark3 < 0 || mark1 > 100 || mark2 > 100 || mark3 > 100)
             { Console.WriteLine("Girdiğiniz not değerleri sıfırdan küçük veya yüzden büyük olamaz."); AverageMarkCalculatorMain(); }
 
-            Console.WriteLine("Not ortalamanız: " + ( mark1 + mark2 + mark3 ) / 3 );
+            Console.WriteLine("Not ortalamanız: " + (mark1 + mark2 + mark3) / 3);
 
             Console.WriteLine(tekrarSor);
             string selectedOption = Console.ReadLine();
@@ -226,7 +256,7 @@ namespace UbeydeWorkspaceCSharp
 
             if (edge2 <= 0) { Console.WriteLine("Girdiğiniz kenar uzunluğu sıfırdan büyük olmak zorundadır."); AreaOfRectangleMain(); }
 
-            Console.WriteLine("Dikdörtgenin çevresi " + ( 2 * ( edge1 + edge2 ) ) + ", alanı ise " + ( edge1 * edge2 ) + "'dir." );
+            Console.WriteLine("Dikdörtgenin çevresi " + (2 * (edge1 + edge2)) + ", alanı ise " + (edge1 * edge2) + "'dir.");
 
             Console.WriteLine(tekrarSor);
             string selectedOption = Console.ReadLine();
@@ -262,22 +292,24 @@ namespace UbeydeWorkspaceCSharp
             if (selectedOperation == "3")
             {
                 AreaOfCircle3();
-            } else if (selectedOperation == "4")
+            }
+            else if (selectedOperation == "4")
             {
                 AreaOfCircle4();
-            } else
+            }
+            else
             {
                 AreaOfCircle.AreaOfCircleMain();
             }
 
             void AreaOfCircle3()
             {
-                Console.WriteLine("Dairenin alanı: " + ( 3 * radius * radius * ( angleOfCircleSegment / 360 ) ) );
+                Console.WriteLine("Dairenin alanı: " + (3 * radius * radius * (angleOfCircleSegment / 360)));
             }
 
             void AreaOfCircle4()
             {
-                Console.WriteLine("Dairenin alanı: " + ( 3.14 * radius * radius * ( angleOfCircleSegment / 360 ) ) );
+                Console.WriteLine("Dairenin alanı: " + (3.14 * radius * radius * (angleOfCircleSegment / 360)));
             }
 
             Console.WriteLine(tekrarSor);
@@ -300,7 +332,7 @@ namespace UbeydeWorkspaceCSharp
 
         public static void EquivalentResistanceCalculatorMain()
         {
-            int resistance1, resistance2, resistance3;  double equivalentResistance;
+            int resistance1, resistance2, resistance3; double equivalentResistance;
             Console.WriteLine("Birinci direnç değerini ohm cinsinden giriniz.");
             resistance1 = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("İkinci direnç değerini ohm cinsinden giriniz.");
@@ -317,7 +349,8 @@ namespace UbeydeWorkspaceCSharp
             else if (selectedOperation == 'b')
             {
                 Parallel();
-            } else
+            }
+            else
             {
                 EquivalentResistanceCalculator.EquivalentResistanceCalculatorMain();
             }
@@ -330,7 +363,7 @@ namespace UbeydeWorkspaceCSharp
 
             void Parallel()
             {
-                equivalentResistance = ( resistance1 * resistance2 * resistance3 ) / ( resistance1 * resistance2 + resistance2 * resistance3 + resistance1 * resistance3 );
+                equivalentResistance = (resistance1 * resistance2 * resistance3) / (resistance1 * resistance2 + resistance2 * resistance3 + resistance1 * resistance3);
                 Console.WriteLine("Eşdeğer direnç " + equivalentResistance);
             }
 
@@ -339,6 +372,98 @@ namespace UbeydeWorkspaceCSharp
             if (selectedOption == "e")
             {
                 EquivalentResistanceCalculator.EquivalentResistanceCalculatorMain();
+            }
+            else
+            {
+                MainClass.Main();
+            }
+        }
+    }
+
+    class OddOrEven
+    {
+
+        static string tekrarSor = "Tekrar sayı denemek ister misiniz? (e/h)";
+
+        public static void OddOrEvenMain()
+        {
+            Console.WriteLine("Bir sayı girin ve enter'a basın.");
+            int input = Convert.ToInt32(Console.ReadLine());
+
+            if (input % 2 == 0)
+            {
+                Console.WriteLine("Girdiğiniz sayı çift.");
+            }
+            else if (input % 2 == 1)
+            {
+                Console.WriteLine("Girdiğiniz sayı tek.");
+            }
+            else { Console.WriteLine("Lütfen bir doğal sayı girdiğinizden emin olun. Girdiğiniz sayı değeri 0'dan küçük olamaz."); OddOrEvenMain(); }
+
+            Console.WriteLine(tekrarSor);
+            string selectedOption = Console.ReadLine();
+            if (selectedOption == "e")
+            {
+                OddOrEven.OddOrEvenMain();
+            }
+            else
+            {
+                MainClass.Main();
+            }
+        }
+    }
+
+    class RemainderFinder
+    {
+
+        static string tekrarSor = "Tekrar kalan değerini bulmak ister misiniz? (e/h)";
+
+        public static void RemainderFinderMain()
+        {
+            int dividend, divisor;
+            Console.WriteLine("Lütfen bölmek istediğiniz sayıyı girin ve enter'a basın.");
+            dividend = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine(dividend + " sayısını hangi sayıya bölmek istiyorsunuz?");
+            divisor = Convert.ToInt32(Console.ReadLine());
+
+            if (dividend < 0 || divisor <= 0) { Console.WriteLine("Bölünen 0'dan küçük olamaz. Ayrıca bölen 0'dan büyük olmak zorunda."); RemainderFinderMain(); }
+
+            Console.WriteLine("{0} sayısının {1} sayısına bölümünden kalan: " + (dividend % divisor), dividend, divisor);
+
+            Console.WriteLine(tekrarSor);
+            string selectedOption = Console.ReadLine();
+            if (selectedOption == "e")
+            {
+                RemainderFinder.RemainderFinderMain();
+            }
+            else
+            {
+                MainClass.Main();
+            }
+        }
+    }
+
+    class TextRepeater
+    {
+
+        static string tekrarSor = "Tekrar denemek ister misiniz? (e/h)";
+
+        public static void TextRepeaterMain()
+        {
+            string inputtedText = Console.ReadLine();
+            int counter = Convert.ToInt32(Console.ReadLine());
+
+            for (int i = 0; i < counter; i++)
+            {
+                Console.WriteLine(inputtedText);
+                if (counter == i) { break; }
+            }
+
+            Console.WriteLine(tekrarSor);
+            string selectedOption = Console.ReadLine();
+            if (selectedOption == "e")
+            {
+                TextRepeater.TextRepeaterMain();
             }
             else
             {
