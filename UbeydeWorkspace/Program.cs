@@ -24,6 +24,7 @@ namespace UbeydeWorkspaceCSharp
             Console.WriteLine("\t10\tYazdırmak istediğiniz bir kelimeyi, cümleyi vb. istediğiniz kadar alt alta yazdırın.");
             Console.WriteLine("\t11\tVücut kitle indeksinizi hesaplayın.");
             Console.WriteLine("\t12\tSeçtiğiniz adette sayıyının miktarlarını yine siz seçerek toplayın.");
+            Console.WriteLine("\t13\tGirdiğiniz sayının asal sayı olup olmadığını bulun.");
 
             try
             {
@@ -69,6 +70,9 @@ namespace UbeydeWorkspaceCSharp
                         break;
                     case 12:
                         MultipleAddition.MultipleAdditionMain();
+                        break;
+                    case 13:
+                        PrimeNumberFinder.PrimeNumberFinderMain();
                         break;
                     default:
                         Main();
@@ -241,7 +245,7 @@ namespace UbeydeWorkspaceCSharp
             string selectedOption = Console.ReadLine();
             if (selectedOption == "e")
             {
-                AverageMarkCalculator.AverageMarkCalculatorMain();
+                AverageMarkCalculatorMain();
             }
             else
             {
@@ -329,7 +333,7 @@ namespace UbeydeWorkspaceCSharp
             string selectedOption = Console.ReadLine();
             if (selectedOption == "e")
             {
-                AreaOfCircle.AreaOfCircleMain();
+                AreaOfCircleMain();
             }
             else
             {
@@ -384,7 +388,7 @@ namespace UbeydeWorkspaceCSharp
             string selectedOption = Console.ReadLine();
             if (selectedOption == "e")
             {
-                EquivalentResistanceCalculator.EquivalentResistanceCalculatorMain();
+                EquivalentResistanceCalculatorMain();
             }
             else
             {
@@ -417,7 +421,7 @@ namespace UbeydeWorkspaceCSharp
             string selectedOption = Console.ReadLine();
             if (selectedOption == "e")
             {
-                OddOrEven.OddOrEvenMain();
+                OddOrEvenMain();
             }
             else
             {
@@ -447,7 +451,7 @@ namespace UbeydeWorkspaceCSharp
             string selectedOption = Console.ReadLine();
             if (selectedOption == "e")
             {
-                RemainderFinder.RemainderFinderMain();
+                RemainderFinderMain();
             }
             else
             {
@@ -478,7 +482,7 @@ namespace UbeydeWorkspaceCSharp
             string selectedOption = Console.ReadLine();
             if (selectedOption == "e")
             {
-                TextRepeater.TextRepeaterMain();
+                TextRepeaterMain();
             }
             else
             {
@@ -530,7 +534,7 @@ namespace UbeydeWorkspaceCSharp
             string selectedOption = Console.ReadLine();
             if (selectedOption == "e")
             {
-                BmiFinder.BmiFinderMain();
+                BmiFinderMain();
             }
             else
             {
@@ -563,7 +567,49 @@ namespace UbeydeWorkspaceCSharp
             string selectedOption = Console.ReadLine();
             if (selectedOption == "e")
             {
-                MultipleAddition.MultipleAdditionMain();
+                MultipleAdditionMain();
+            }
+            else
+            {
+                MainClass.Main();
+            }
+        }
+    }
+
+    class PrimeNumberFinder
+    {
+
+        static string tekrarSor = "Tekrar sayı denemek ister misiniz? (e/h)";
+
+        public static void PrimeNumberFinderMain()
+        {
+            int controller = 0, inputtedNumber;
+            Console.WriteLine("Asal olup olmadığını öğrenmek istediğiniz sayıyı girin.");
+            inputtedNumber = Convert.ToInt32(Console.ReadLine());
+
+            if (inputtedNumber <= 0)
+            {
+                Console.WriteLine("Girdiğiniz sayı pozitif tam sayı olmak zorundadır. Lütfen sıfırdan büyük bir tam sayı girin.");
+                PrimeNumberFinderMain();
+            }
+            
+            for (int i = 2; i < inputtedNumber; i++)
+            {
+                if (inputtedNumber % i == 0)
+                {
+                    controller++;
+                    break;
+                }
+            }
+
+            if (controller != 0 || inputtedNumber == 1) { Console.WriteLine("Girdiğiniz {0} sayısı asal sayı değildir.", inputtedNumber); }
+            else { Console.WriteLine("Girdiğiniz {0} sayısı asal sayıdır.", inputtedNumber); }
+
+            Console.WriteLine(tekrarSor);
+            string selectedOption = Console.ReadLine();
+            if (selectedOption == "e")
+            {
+                PrimeNumberFinderMain();
             }
             else
             {
