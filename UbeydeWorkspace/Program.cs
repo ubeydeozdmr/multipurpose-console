@@ -22,6 +22,8 @@ namespace UbeydeWorkspaceCSharp
             Console.WriteLine("\t8\tYazdığınız sayının tek mi çift mi olduğunu görün.");
             Console.WriteLine("\t9\tBir sayıyı diğer bir sayıya bölüp kalanı bulun.");
             Console.WriteLine("\t10\tYazdırmak istediğiniz bir kelimeyi, cümleyi vb. istediğiniz kadar alt alta yazdırın.");
+            Console.WriteLine("\t11\tVücut kitle indeksinizi hesaplayın.");
+            Console.WriteLine("\t12\tSeçtiğiniz adette sayıyının miktarlarını yine siz seçerek toplayın.");
 
             try
             {
@@ -61,6 +63,12 @@ namespace UbeydeWorkspaceCSharp
                         break;
                     case 10:
                         TextRepeater.TextRepeaterMain();
+                        break;
+                    case 11:
+                        BmiFinder.BmiFinderMain();
+                        break;
+                    case 12:
+                        MultipleAddition.MultipleAdditionMain();
                         break;
                     default:
                         Main();
@@ -471,6 +479,91 @@ namespace UbeydeWorkspaceCSharp
             if (selectedOption == "e")
             {
                 TextRepeater.TextRepeaterMain();
+            }
+            else
+            {
+                MainClass.Main();
+            }
+        }
+    }
+
+    class BmiFinder
+    {
+
+        static string tekrarSor = "Tekrar VKI ölçmek ister misiniz? (e/h)";
+
+        public static void BmiFinderMain()
+        {
+            double weight, height, yourBMI;
+            Console.WriteLine("Lütfen kilonuzu kg cinsinden giriniz.");
+            weight = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Lütfen boyunuzu cm cinsinden giriniz.");
+            height = Convert.ToDouble(Console.ReadLine());
+            yourBMI = weight / ((height / 100) * (height / 100));
+            Console.WriteLine("Vücut kitle indeksiniz: {0}", yourBMI);
+
+            if (yourBMI < 18)
+            {
+                Console.WriteLine("Zayıf");
+            } else
+            if (yourBMI >= 18 && yourBMI < 25)
+            {
+                Console.WriteLine("Sağlıklı");
+            } else
+            if (yourBMI >= 25 && yourBMI < 30)
+            {
+                Console.WriteLine("Fazla kilolu");
+            } else
+            if (yourBMI >= 30 && yourBMI < 35)
+            {
+                Console.WriteLine("Obezite Tip 1");
+            } else
+            if (yourBMI >= 35 && yourBMI < 40)
+            {
+                Console.WriteLine("Obezite Tip 2");
+            } else
+            {
+                Console.WriteLine("Obezite Tip 3");
+            }
+
+            Console.WriteLine(tekrarSor);
+            string selectedOption = Console.ReadLine();
+            if (selectedOption == "e")
+            {
+                BmiFinder.BmiFinderMain();
+            }
+            else
+            {
+                MainClass.Main();
+            }
+        }
+    }
+
+    class MultipleAddition
+    {
+
+        static string tekrarSor = "Tekrar denemek ister misiniz? (e/h)";
+
+        public static void MultipleAdditionMain()
+        {
+            int number, counter, total = 0;
+            Console.WriteLine("Kaç tane sayı toplayacaksınız?");
+            counter = Convert.ToInt32(Console.ReadLine());
+
+            for (int i = 1; i <= counter; i++)
+            {
+                Console.WriteLine("{0}. sayıyı girin: ", i);
+                number = Convert.ToInt32(Console.ReadLine());
+                total += number;
+            }
+
+            Console.WriteLine("Girdiğiniz {0} adet sayının toplamı: {1}", counter, total);
+
+            Console.WriteLine(tekrarSor);
+            string selectedOption = Console.ReadLine();
+            if (selectedOption == "e")
+            {
+                MultipleAddition.MultipleAdditionMain();
             }
             else
             {
