@@ -7,6 +7,8 @@ namespace UbeydeWorkspaceCSharp
         public static void Main()
         {
 
+            //Konsol ilk açıldığında çıkan menü
+
             Console.ForegroundColor = ConsoleColor.Gray;
             string name = "Ubeyde";
             Console.WriteLine("{0}'nin Çalışma Alanına Hoşgeldiniz!", name);
@@ -25,6 +27,10 @@ namespace UbeydeWorkspaceCSharp
             Console.WriteLine("\t11\tVücut kitle indeksinizi hesaplayın.");
             Console.WriteLine("\t12\tSeçtiğiniz adette sayıyının miktarlarını yine siz seçerek toplayın.");
             Console.WriteLine("\t13\tGirdiğiniz sayının asal sayı olup olmadığını bulun.");
+            Console.WriteLine("\t14\tSınav notunuzu değerlendirin.");
+            Console.WriteLine("\t15\tHerhangi bir sayının herhangi kuvvetinin kaça eşit olduğunu bulun.");
+
+            //Bir sayı seçip enter'a basmanız durumunda olacaklar
 
             try
             {
@@ -74,6 +80,12 @@ namespace UbeydeWorkspaceCSharp
                     case 13:
                         PrimeNumberFinder.PrimeNumberFinderMain();
                         break;
+                    case 14:
+                        MarkEvaluation.MarkEvaluationMain();
+                        break;
+                    case 15:
+                        ExponentOfNumberFinder.ExponentOfNumberFinderMain();
+                        break;
                     default:
                         Main();
                         break;
@@ -81,6 +93,9 @@ namespace UbeydeWorkspaceCSharp
             }
             catch
             {
+
+                //Kırmızı çerçeveli hata mesajı
+
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("\t********************************************************************");
                 Console.WriteLine("\t*                                                                  *");
@@ -409,10 +424,12 @@ namespace UbeydeWorkspaceCSharp
 
             if (input % 2 == 0)
             {
+                //Bir doğal sayının 2'ye bölünmesi durumunda kalan 0 oluyorsa sayı çifttir.
                 Console.WriteLine("Girdiğiniz sayı çift.");
             }
             else if (input % 2 == 1)
             {
+                //Bir doğal sayının 2'ye bölünmesi durumunda kalan 1 oluyorsa sayı tektir.
                 Console.WriteLine("Girdiğiniz sayı tek.");
             }
             else { Console.WriteLine("Lütfen bir doğal sayı girdiğinizden emin olun. Girdiğiniz sayı değeri 0'dan küçük olamaz."); OddOrEvenMain(); }
@@ -443,6 +460,8 @@ namespace UbeydeWorkspaceCSharp
             Console.WriteLine(dividend + " sayısını hangi sayıya bölmek istiyorsunuz?");
             divisor = Convert.ToInt32(Console.ReadLine());
 
+            //Bölenin 0'a eşit olmasını engellemek kodun hata vermemesi açısından gereklidir.
+
             if (dividend < 0 || divisor <= 0) { Console.WriteLine("Bölünen 0'dan küçük olamaz. Ayrıca bölen 0'dan büyük olmak zorunda."); RemainderFinderMain(); }
 
             Console.WriteLine("{0} sayısının {1} sayısına bölümünden kalan: " + (dividend % divisor), dividend, divisor);
@@ -471,6 +490,8 @@ namespace UbeydeWorkspaceCSharp
             string inputtedText = Console.ReadLine();
             Console.WriteLine("Girdiğiniz kelime, cümle vb. kaç defa tekrarlansın?");
             int counter = Convert.ToInt32(Console.ReadLine());
+
+            //for döngüsü ile 0'dan başlanıp sayacın bir eksiği kadar kullanıcının girdiği metin alt alta tekrarlanır.
 
             for (int i = 0; i < counter; i++)
             {
@@ -503,6 +524,9 @@ namespace UbeydeWorkspaceCSharp
             weight = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine("Lütfen boyunuzu cm cinsinden giriniz.");
             height = Convert.ToDouble(Console.ReadLine());
+
+            //Vücut kitle indeksi kilogram cinsindeki kilonun, metre cinsinden yüksekliğin karesine bölünmesi ile bulunur.
+
             yourBMI = weight / ((height / 100) * (height / 100));
             Console.WriteLine("Vücut kitle indeksiniz: {0}", yourBMI);
 
@@ -554,6 +578,8 @@ namespace UbeydeWorkspaceCSharp
             Console.WriteLine("Kaç tane sayı toplayacaksınız?");
             counter = Convert.ToInt32(Console.ReadLine());
 
+            //for döngüsü kullanıcığın seçtiği kadar sayı toplayabilmesi açısından önemlidir.
+
             for (int i = 1; i <= counter; i++)
             {
                 Console.WriteLine("{0}. sayıyı girin: ", i);
@@ -602,6 +628,8 @@ namespace UbeydeWorkspaceCSharp
                 }
             }
 
+            //Asal sayılarda 1 ve 2 sayılarının istisnası olduğundan bununla alakalı düzenlemeler gerekiyor
+
             if (controller != 0 || inputtedNumber == 1) { Console.WriteLine("Girdiğiniz {0} sayısı asal sayı değildir.", inputtedNumber); }
             else { Console.WriteLine("Girdiğiniz {0} sayısı asal sayıdır.", inputtedNumber); }
 
@@ -610,6 +638,95 @@ namespace UbeydeWorkspaceCSharp
             if (selectedOption == "e")
             {
                 PrimeNumberFinderMain();
+            }
+            else
+            {
+                MainClass.Main();
+            }
+        }
+    }
+
+    class MarkEvaluation
+    {
+
+        static string tekrarSor = "Tekrar sınav notunuzu değerlendirmek ister misiniz? (e/h)";
+
+        public static void MarkEvaluationMain()
+        {
+            Console.WriteLine("Sınav notunuzu giriniz.");
+            int mark;
+            mark = Convert.ToInt32(Console.ReadLine());
+
+            if (mark < 50)
+            {
+                Console.WriteLine("Sınavdan kaldınız.");
+            }
+            else if (mark >= 50 && mark < 60)
+            {
+                Console.WriteLine("Puanınız zayıf.");
+            }
+            else if (mark >= 60 && mark < 70)
+            {
+                Console.WriteLine("Puanınız orta.");
+            }
+            else if (mark >= 70 && mark < 85)
+            {
+                Console.WriteLine("Puanınız yüksek.");
+            }
+            else if (mark >= 85 && mark <= 100)
+            {
+                Console.WriteLine("Puanınız çok yüksek.");
+                if (mark == 100)
+                {
+                    Console.WriteLine("Mükemmel!");
+                }
+            }
+            else
+            {
+                //Sıfırdan düşük veya 100'den büyük bir not değeri girilirse bu yazı çıkar.
+                Console.WriteLine("Lütfen geçerli bir sınav notu giriniz.");
+            }
+
+            Console.WriteLine(tekrarSor);
+            string selectedOption = Console.ReadLine();
+            if (selectedOption == "e")
+            {
+                MarkEvaluationMain();
+            }
+            else
+            {
+                MainClass.Main();
+            }
+        }
+    }
+
+    class ExponentOfNumberFinder
+    {
+
+        static string tekrarSor = "Tekrar üs bulmak ister misiniz? (e/h)";
+
+        public static void ExponentOfNumberFinderMain()
+        {
+            int baseNumber, exponent, result = 1;
+            Console.WriteLine("Lütfen taban sayıyı girin.");
+            baseNumber = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Lütfen taban sayının \"üssünü\" giriniz.");
+            exponent = Convert.ToInt32(Console.ReadLine());
+
+            //for döngüsü burada aynı sayıyı kullanıcının girdiği üs değeri kadar çarpar.
+
+            for (int i = 0; i < exponent; i++)
+            {
+                result *= baseNumber;
+            }
+
+            Console.WriteLine("{0} sayısının {1}. kuvveti {2}'e eşittir.", baseNumber, exponent, result);
+
+            Console.WriteLine(tekrarSor);
+            string selectedOption = Console.ReadLine();
+            if (selectedOption == "e")
+            {
+                ExponentOfNumberFinderMain();
             }
             else
             {
