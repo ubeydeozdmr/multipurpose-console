@@ -1,0 +1,15 @@
+C:\Users\ubeyd\source\repos\MultipurposeConsole\MultipurposeConsole\bin\Debug\net6.0\MultipurposeConsole.exe
+C:\Users\ubeyd\source\repos\MultipurposeConsole\MultipurposeConsole\bin\Debug\net6.0\MultipurposeConsole.deps.json
+C:\Users\ubeyd\source\repos\MultipurposeConsole\MultipurposeConsole\bin\Debug\net6.0\MultipurposeConsole.runtimeconfig.json
+C:\Users\ubeyd\source\repos\MultipurposeConsole\MultipurposeConsole\bin\Debug\net6.0\MultipurposeConsole.dll
+C:\Users\ubeyd\source\repos\MultipurposeConsole\MultipurposeConsole\bin\Debug\net6.0\ref\MultipurposeConsole.dll
+C:\Users\ubeyd\source\repos\MultipurposeConsole\MultipurposeConsole\bin\Debug\net6.0\MultipurposeConsole.pdb
+C:\Users\ubeyd\source\repos\MultipurposeConsole\MultipurposeConsole\obj\Debug\net6.0\MultipurposeConsole.csproj.AssemblyReference.cache
+C:\Users\ubeyd\source\repos\MultipurposeConsole\MultipurposeConsole\obj\Debug\net6.0\MultipurposeConsole.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ubeyd\source\repos\MultipurposeConsole\MultipurposeConsole\obj\Debug\net6.0\MultipurposeConsole.AssemblyInfoInputs.cache
+C:\Users\ubeyd\source\repos\MultipurposeConsole\MultipurposeConsole\obj\Debug\net6.0\MultipurposeConsole.AssemblyInfo.cs
+C:\Users\ubeyd\source\repos\MultipurposeConsole\MultipurposeConsole\obj\Debug\net6.0\MultipurposeConsole.csproj.CoreCompileInputs.cache
+C:\Users\ubeyd\source\repos\MultipurposeConsole\MultipurposeConsole\obj\Debug\net6.0\MultipurposeConsole.dll
+C:\Users\ubeyd\source\repos\MultipurposeConsole\MultipurposeConsole\obj\Debug\net6.0\ref\MultipurposeConsole.dll
+C:\Users\ubeyd\source\repos\MultipurposeConsole\MultipurposeConsole\obj\Debug\net6.0\MultipurposeConsole.pdb
+C:\Users\ubeyd\source\repos\MultipurposeConsole\MultipurposeConsole\obj\Debug\net6.0\MultipurposeConsole.genruntimeconfig.cache
